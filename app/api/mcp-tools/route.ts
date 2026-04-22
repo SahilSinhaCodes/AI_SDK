@@ -38,12 +38,12 @@ import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/
       const { messages }: { messages: ChatMessage[] } = await req.json();
 
       const httpTransport = new StreamableHTTPClientTransport(
-        new URL("https://app.mockmcp.com/servers/g4iE5__q0qsH/mcp"),
+        new URL("blud"),
         {
           requestInit: {
             headers: {
               Authorization:
-                "Bearer mcp_m2m_MQ0kkus4Vw6NhOxh9iCzMNpIroBjwIejEd_3uijkY3o_49dd786564717ff9",
+                "blud",
             },
           },
         }
