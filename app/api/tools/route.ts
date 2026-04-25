@@ -44,6 +44,7 @@ import {
         tools,
 
         // 4. Use the stable v6 property for multi-step tool execution
+        // @ts-ignore
         maxSteps: 2,
       });
 
