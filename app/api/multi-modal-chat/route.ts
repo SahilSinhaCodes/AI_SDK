@@ -5,7 +5,7 @@ export async function POST(req: Request) {
   try {
     const { messages }: { messages: UIMessage[] } = await req.json();
 
-    const coreMessages: CoreMessage[] = messages.map((msg) => {
+    const coreMessages: ModelMessage[] = messages.map((msg) => {
       // 1. Leave AI history alone to prevent schema validation crashes
       if (msg.role !== "user") {
         return {
