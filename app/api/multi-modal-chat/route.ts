@@ -1,4 +1,4 @@
-import { streamText, UIMessage, CoreMessage } from "ai";
+import { streamText, UIMessage, ModelMessage } from "ai";
 import { groq } from "@ai-sdk/groq";
 
 export async function POST(req: Request) {
