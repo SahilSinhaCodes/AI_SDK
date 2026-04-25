@@ -31,8 +31,11 @@ export default function MCPToolsChatPage() {
           </div>
 
           {message.parts.map((part, index) => {
+            // FIX: Force TypeScript to treat part.type as a generic string
+            const partType = part.type as string;
+
             // 0. Silently ignore background loop signals from the SDK
-            if (part.type === "step-start" || part.type === "step-finish" || part.type === "reasoning") {
+            if (partType === "step-start" || partType === "step-finish" || partType === "reasoning") {
               return null;
             }
 
