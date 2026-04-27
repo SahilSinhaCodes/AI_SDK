@@ -31,15 +31,15 @@ export default function MCPToolsChatPage() {
           </div>
 
           {message.parts.map((part, index) => {
-            // FIX: Force TypeScript to treat part.type as a generic string
+
             const partType = part.type as string;
 
-            // 0. Silently ignore background loop signals from the SDK
+
             if (partType === "step-start" || partType === "step-finish" || partType === "reasoning") {
               return null;
             }
 
-            // 1. Render standard text responses
+
             if (part.type === "text") {
               return (
                 <div key={`${message.id}-${index}`} className="whitespace-pre-wrap mt-2">
@@ -48,8 +48,7 @@ export default function MCPToolsChatPage() {
               );
             }
 
-            // 2. Bulletproof Tool Catcher (Catches "tool-getWeather" AND "dynamic-tool")
-            // All tools in the AI SDK have a 'state' property.
+
             if ('state' in part) {
               return (
                 <div key={`${message.id}-${index}`} className="bg-zinc-800/50 border border-zinc-700 p-3 rounded mt-2 mb-2 shadow-sm">
@@ -90,7 +89,7 @@ export default function MCPToolsChatPage() {
               );
             }
 
-            // 3. Fallback for completely unknown data types
+
             return (
               <div key={`${message.id}-${index}`} className="bg-orange-900/20 p-2 text-xs text-orange-400 rounded mt-2">
                 Unknown part type received: {JSON.stringify(part)}

@@ -37,12 +37,12 @@ export async function POST(req: Request) {
     const { messages }: { messages: ChatMessage[] } = await req.json();
 
     const httpTransport = new StreamableHTTPClientTransport(
-      // Pulled from .env.local (The ! tells TypeScript we guarantee this exists)
+
       new URL(process.env.MCP_URL!),
       {
         requestInit: {
           headers: {
-            // Pulled from .env.local
+            
             Authorization: process.env.Bearer_Link!,
           },
         },

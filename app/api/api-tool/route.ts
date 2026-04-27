@@ -6,7 +6,7 @@ import {
     convertToModelMessages,
     InferUITools,
   } from "ai";
-  import { groq } from "@ai-sdk/groq"; // Swapped to Groq
+  import { groq } from "@ai-sdk/groq";
   import { z } from "zod";
 
   const tools = {
@@ -16,7 +16,7 @@ import {
         city: z.string().describe("The city to get the weather for"),
       }),
       execute: async ({ city }) => {
-        // Make sure you have your WEATHER_API_KEY in your .env.local file!
+
         const response = await fetch(
           `http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${city}`
         );
@@ -55,7 +55,7 @@ import {
       const result = streamText({
         model: groq("llama-3.3-70b-versatile"),
 
-        // FIX: Add a strict system prompt to stop the AI from hallucinating extra text
+
         system: "You are a helpful weather assistant. When a user asks for the weather, strictly use the getWeather tool to fetch the data. Do NOT add any conversational filler before calling the tool.",
 
         messages: await convertToModelMessages(messages),

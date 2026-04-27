@@ -6,7 +6,7 @@ export async function POST(req: Request) {
   try {
     const { messages }: { messages: UIMessage[] } = await req.json();
 
-    // FIX 1: Add await here because this function is now async in v6
+
     const modelMessages = await convertToModelMessages(messages);
 
     const result = streamText({
@@ -30,7 +30,7 @@ export async function POST(req: Request) {
         });
       });
 
-      // FIX 2: Swapped to the v6 standard for rich UI chat streaming
+      
       return result.toUIMessageStreamResponse();
     } catch (error) {
       console.error("Error streaming chat completion:", error);

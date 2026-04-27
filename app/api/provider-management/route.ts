@@ -6,10 +6,10 @@ export async function POST(req: Request) {
     const { messages }: { messages: UIMessage[] } = await req.json();
 
     const result = streamText({
-      // We are now pulling from our custom registry instead of calling groq() directly
+
       model: registry.languageModel("groq:smart"),
 
-      // Don't forget the v6 await fix!
+    
       messages: await convertToModelMessages(messages),
     });
 

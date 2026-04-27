@@ -14,7 +14,7 @@ export async function POST(req: Request) {
       prompt: `Generate a recipe for ${dish}`,
     });
 
-    // In AI SDK v6, this is the standard for streaming objects to the useObject hook
+
     return result.toTextStreamResponse();
   } catch (error) {
     console.error("Error generating recipe:", error);

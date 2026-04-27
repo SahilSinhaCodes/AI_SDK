@@ -6,11 +6,11 @@ export async function POST(req: Request) {
     const { prompt } = await req.json();
 
     const result = streamText({
-      model: groq("llama-3.3-70b-versatile"), // Swapped to Groq's model
+      model: groq("llama-3.3-70b-versatile"),
       prompt,
     });
 
-    // Log token usage after streaming completes
+
     result.usage.then((usage) => {
       console.log({
           inputTokens: usage.inputTokens,
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
         });
       });
 
-      // Returned using the standard data stream response
+      
       return result.toUIMessageStreamResponse();
     } catch (error) {
       console.error("Error streaming text:", error);

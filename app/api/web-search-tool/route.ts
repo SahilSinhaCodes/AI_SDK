@@ -6,7 +6,7 @@ export async function POST(req: Request) {
     const { messages }: { messages: UIMessage[] } = await req.json();
 
     const result = streamText({
-      // FIX: Downgrading to the mini version to bypass Groq's internal scorecard crash
+
       model: groq("groq/compound-mini"),
       messages: await convertToModelMessages(messages),
     });

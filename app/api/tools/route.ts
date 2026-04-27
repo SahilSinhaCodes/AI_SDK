@@ -6,7 +6,7 @@ import {
     InferUITools,
     UIDataTypes,
   } from "ai";
-  import { groq } from "@ai-sdk/groq"; // 1. Swapped to Groq
+  import { groq } from "@ai-sdk/groq";
   import { z } from "zod";
 
   const tools = {
@@ -35,15 +35,15 @@ import {
       const { messages }: { messages: ChatMessage[] } = await req.json();
 
       const result = streamText({
-        // 2. Use the versatile 70B model for highly accurate tool calling
+
         model: groq("llama-3.3-70b-versatile"),
 
-        // 3. Await the conversion to prevent the TypeScript Promise error
+
         messages: await convertToModelMessages(messages),
 
         tools,
 
-        // 4. Use the stable v6 property for multi-step tool execution
+
         // @ts-ignore
         maxSteps: 2,
       });

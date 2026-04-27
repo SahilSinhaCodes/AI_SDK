@@ -11,17 +11,17 @@ export async function POST(req: Request) {
       return new Response("No audio file provided", { status: 400 });
     }
 
-    // Convert File to Uint8Array (The AI SDK requires this format)
+
     const arrayBuffer = await audioFile.arrayBuffer();
     const uint8Array = new Uint8Array(arrayBuffer);
 
-    // Transcribe the audio using Groq's blazing fast Whisper model
+
     const transcript = await transcribe({
       model: groq.transcription("whisper-large-v3"),
       audio: uint8Array,
     });
 
-    // Return the transcript data
+    
     return Response.json(transcript);
   } catch (error) {
     console.error("Error transcribing audio:", error);

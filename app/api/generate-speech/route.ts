@@ -2,7 +2,7 @@ export async function POST(req: Request) {
   try {
     const { text } = await req.json();
 
-    // 1. Call Groq's API directly using native fetch (Bypassing Vercel AI SDK)
+
     const response = await fetch("https://api.groq.com/openai/v1/audio/speech", {
       method: "POST",
       headers: {
@@ -23,7 +23,7 @@ export async function POST(req: Request) {
       return new Response("Groq API rejected the request", { status: response.status });
     }
 
-    // 2. Convert the audio stream into a Buffer for the frontend
+
     const arrayBuffer = await response.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
 

@@ -25,7 +25,7 @@ export default function CompletionStreamPage() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          setInput(""); // temporary fix to clear the input after submission
+          setInput(""); 
           handleSubmit(e);
         }}
         className="fixed bottom-0 w-full max-w-md mx-auto left-0 right-0 p-4 bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 shadow-lg"

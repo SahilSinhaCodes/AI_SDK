@@ -21,7 +21,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="text-zinc-500 hover:text-black dark:hover:text-white transition-colors"
           >
-            {/* Raw SVG replacing the deprecated Lucide Github component */}
+
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
