@@ -16,7 +16,7 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-6 h-16 flex items-center justify-between">
           <div className="font-bold text-xl tracking-tight">AI SDK Hub</div>
           <a
-            href="https://github.com"
+            href="https://github.com/whysosahil"
             target="_blank"
             rel="noopener noreferrer"
             className="text-zinc-500 hover:text-black dark:hover:text-white transition-colors"
