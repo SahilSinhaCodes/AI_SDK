@@ -3,13 +3,12 @@
 import React from "react";
 import { useState } from "react";
 import { useChat } from "@ai-sdk/react";
-import { DefaultChatTransport } from "ai";
-import type { ChatMessage } from "@/app/api/web-search-tool/route";
+import { DefaultChatTransport, UIMessage } from "ai";
 
 export default function WebSearchToolPage() {
   const [input, setInput] = useState("");
 
-  const { messages, sendMessage, status, error, stop } = useChat<ChatMessage>({
+  const { messages, sendMessage, status, error, stop } = useChat<UIMessage>({
     transport: new DefaultChatTransport({
       api: "/api/web-search-tool",
     }),
