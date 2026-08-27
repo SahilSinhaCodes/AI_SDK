@@ -56,7 +56,7 @@ export async function POST(req: Request) {
     const mcpTools = await mcpClient.tools();
 
     const result = streamText({
-      model: groq("llama-3.3-70b-versatile"),
+      model: groq("llama-3.1-8b-instant"),
       messages: await convertToModelMessages(messages),
       tools: { ...tools, ...mcpTools },
 
